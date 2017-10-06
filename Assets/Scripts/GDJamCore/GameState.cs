@@ -76,6 +76,9 @@ public class GameState : MonoBehaviour {
 	void OnChangeControlsState() {
 
 	}
+    void Test() {
+        
+    }
 
 
 }
