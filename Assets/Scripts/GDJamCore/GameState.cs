@@ -25,6 +25,7 @@ public class GameState : MonoBehaviour {
 
 	private List<InventoryItemInfo> _inventoryItems = new List<InventoryItemInfo>();
 
+
 	public void AddInventoryItem(InventoryItemInfo item) {
 		var itemInInv =  _inventoryItems.Find( x => x.Id.Equals(item.Id));
 		if ( itemInInv == null ) {

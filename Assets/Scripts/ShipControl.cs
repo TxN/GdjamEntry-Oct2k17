@@ -3,68 +3,46 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ShipControl : MonoBehaviour {
-    public float rotateMomentum = 0.5f;
+    public float RotateMomentum = 0.5f;
 
     List<GameObject> connectedTanks = new List<GameObject>();
+
+    SpaceGameState _state = null;
 
     private Rigidbody2D body;
 	void Start () 
     {
         body = GetComponent<Rigidbody2D>();
-
+        _state = SpaceGameState.Instance;
 	}
 	
 
 	void Update ()
     {
-	    if (Input.GetKey(KeyCode.A)) {
-            body.AddTorque(rotateMomentum);
+        if (_state.LockState == ControlsState.Unlocked) {
+            if (Input.GetKey(KeyCode.A)) {
+                body.AddTorque(RotateMomentum);
+            }
+            if (Input.GetKey(KeyCode.D)) {
+                body.AddTorque(-RotateMomentum);
+            }
+
+            if (Input.GetKeyDown(KeyCode.W)) {
+                body.AddForce(transform.TransformDirection(Vector2.up), ForceMode2D.Impulse);
+            }
+
+            if (Input.GetKeyDown(KeyCode.S)) {
+                body.AddForce(transform.TransformDirection(-Vector2.up), ForceMode2D.Impulse);
+            }
         }
-       if (Input.GetKey(KeyCode.D)) {
-            body.AddTorque(-rotateMomentum);
-        }
-
-       if (Input.GetKeyDown(KeyCode.W))
-       {
-           body.AddForce(transform.TransformDirection(Vector2.up), ForceMode2D.Impulse);
-       }
-
-       if (Input.GetKeyDown(KeyCode.S))
-       {
-           body.AddForce(transform.TransformDirection(-             Vector2.up), ForceMode2D.Impulse);
-       }
-
-       if (Input.GetKeyDown(KeyCode.Space))
-       {
-           TurnOnAllTanks();
-       }
-       
-
 	}
 
 
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.GetComponent<OxygenTank>())
-        {
-            coll.gameObject.GetComponent<OxygenTank>().connectedBody = this.gameObject;
-            FixedJoint2D joint = coll.gameObject.AddComponent<FixedJoint2D>();
-            joint.connectedBody = body;
-            connectedTanks.Add(coll.gameObject);
-            
-        }
-    }
+    void OnCollisionEnter2D(Collision2D coll) {
+        var caps = coll.gameObject.GetComponent<SafeCapsule>();
 
-    public void RemoveTank(GameObject tank)
-    {
-        connectedTanks.Remove(tank);
-    }
-
-    void TurnOnAllTanks()
-    {
-        foreach (var tank in connectedTanks)
-        {
-            tank.GetComponent<OxygenTank>().StartThrust();
+        if ( caps ) {
+            _state.InteractWithCapsule(caps);
         }
     }
 }
