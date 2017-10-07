@@ -169,6 +169,7 @@ public class SpaceGameState : MonoBehaviour {
 
 
     public void Jump() {
+        EventManager.Fire(new Event_Jump());
         WarpEffect effect = _playerShip.GetComponent<WarpEffect>();
         effect.enabled = true;
     }
