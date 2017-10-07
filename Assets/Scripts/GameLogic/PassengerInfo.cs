@@ -7,5 +7,5 @@ public class PassengerInfo : MonoBehaviour {
     public string Id = null;
     public string FirstDesc = "";
     public string SecondDesc = "";
-
+    public bool SkipOnSpawn = false;
 }

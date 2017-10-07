@@ -33,6 +33,8 @@ public class SpaceGameState : MonoBehaviour {
 
     private float _fuelLevel = 0f;
 
+    private CapsuleManager _capsuleManager;
+
     public float FuelLevel {
         get {
             return _fuelLevel;
@@ -81,9 +83,15 @@ public class SpaceGameState : MonoBehaviour {
             DontDestroyOnLoad(this);
         }
 
+        _capsuleManager = GetComponent<CapsuleManager>();
+
         _playerShip = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
 
         _fuelLevel = MaxFuelCapacity;
+    }
+
+    void Start() {
+        _capsuleManager.SpawnCapsules();
     }
 
     private void OnDestroy() {
@@ -139,6 +147,7 @@ public class SpaceGameState : MonoBehaviour {
         }
 
         CollectedCapusles.Add(_currentCapsule.CharacterId);
+        EventManager.Fire<Event_CapsuleCollect>(new Event_CapsuleCollect { CapsuleId = _currentCapsule.CharacterId });
         Destroy(_currentCapsule);
         _currentCapsule = null;
     }

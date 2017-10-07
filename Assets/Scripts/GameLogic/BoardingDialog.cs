@@ -68,5 +68,17 @@ public class BoardingDialog : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
+    public void CollectCapsule() {
+        if (!_isInit) {
+            Init();
+        }
+
+        if (_windowState != WindowState.Shown) {
+            return;
+        }
+
+        _state.CollectCapsule();
+        HideWindow();
+    }
     
 }
