@@ -27,6 +27,30 @@ public class SpaceGameState : MonoBehaviour {
 
     float _interactTimeout = 1f;
 
+    public float MaxFuelCapacity = 250f;
+
+    public float FuelPerBurn = 1f;
+
+    private float _fuelLevel = 0f;
+
+    public float FuelLevel {
+        get {
+            return _fuelLevel;
+        }
+    }
+
+    public bool CanBurn {
+        get {
+            return FuelLevel > FuelPerBurn;
+        }
+    }
+
+    public void BurnFuel() {
+        if (CanBurn) {
+            _fuelLevel -= FuelPerBurn;
+        }
+    }
+
     public int MaxCargo {
         get {
             return 10;
@@ -58,6 +82,8 @@ public class SpaceGameState : MonoBehaviour {
         }
 
         _playerShip = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+
+        _fuelLevel = MaxFuelCapacity;
     }
 
     private void OnDestroy() {

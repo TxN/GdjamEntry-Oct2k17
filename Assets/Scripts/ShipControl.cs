@@ -6,7 +6,8 @@ using EventSys;
 public class ShipControl : MonoBehaviour {
     public float RotateMomentum = 0.5f;
 
-    List<GameObject> connectedTanks = new List<GameObject>();
+    public ParticleSystem MoveForwardParticles;
+    public ParticleSystem MoveBackwardsParticles;
 
     SpaceGameState _state = null;
 
@@ -26,15 +27,18 @@ public class ShipControl : MonoBehaviour {
                 body.AddTorque(-RotateMomentum);
             }
 
-            if (Input.GetKeyDown(KeyCode.W)) {
+            if (Input.GetKeyDown(KeyCode.W) && _state.CanBurn) {
                 body.AddForce(transform.TransformDirection(Vector2.up), ForceMode2D.Impulse);
                 EventManager.Fire<Event_Accelerate>(new Event_Accelerate { direction = 1 });
-
+                _state.BurnFuel();
+                MoveForwardParticles.Play();
             }
 
-            if (Input.GetKeyDown(KeyCode.S)) {
+            if (Input.GetKeyDown(KeyCode.S) && _state.CanBurn) {
                 body.AddForce(transform.TransformDirection(-Vector2.up), ForceMode2D.Impulse);
                 EventManager.Fire<Event_Accelerate>(new Event_Accelerate { direction = -1 });
+                _state.BurnFuel();
+                MoveBackwardsParticles.Play();
             }
         }
 	}
