@@ -76,6 +76,11 @@ public class SpaceGameState : MonoBehaviour {
             return _playerShip.velocity.magnitude;
         }
     }
+	public Dictionary<string, GameObject> SpawnedCapsules{
+		get{
+			return _capsuleManager.SpawnedCapsules;
+		}
+	}
 
     private void Awake() {
         if (Instance == null) {
@@ -151,6 +156,7 @@ public class SpaceGameState : MonoBehaviour {
         Destroy(_currentCapsule.gameObject);
         _currentCapsule = null;
     }
+
 
 
 

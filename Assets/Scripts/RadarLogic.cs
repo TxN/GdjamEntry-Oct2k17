@@ -6,7 +6,7 @@ public class RadarLogic : MonoBehaviour {
 	public GameObject dot;
 	public Dictionary<string, GameObject> dots;
 	public float vecCoef = 0.1f;
-	Dictionary<string, GameObject> capsules = SpaceGameState.Instance.CapsuleManager.SpawnedCapsules;
+	Dictionary<string, GameObject> capsules = SpaceGameState.Instance.SpawnedCapsules;
 	// Use this for initialization
 	void Start () {
 		
