@@ -20,7 +20,6 @@ public class SlotsGUI : MonoBehaviour {
     void OnCollect(Event_CapsuleCollect e) {
         Sprite spr = (Sprite) Resources.Load<Sprite>("SmallPortraits/" + e.CapsuleId);
         if (spr != null) {
-            Debug.Log("set spr");
             PortraitPlaces[_curIndex].sprite = spr; 
         }
         _curIndex++;

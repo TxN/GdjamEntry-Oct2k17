@@ -21,6 +21,12 @@ public class AsteroidsSpawn : MonoBehaviour {
 
 	GameObject root;
 
+    public static AsteroidsSpawn Instance = null;
+
+    void Awake() {
+        Instance = this;
+    }
+
 	// Use this for initialization
 	void Start () {
 		asteroids = new GameObject[asteroidsMax];

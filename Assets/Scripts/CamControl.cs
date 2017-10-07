@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class CamControl : MonoBehaviour {
+
+    public static CamControl Instance;
+
     public AnimationCurve lerpCoef;
     public Transform player;
 
@@ -17,6 +20,11 @@ public class CamControl : MonoBehaviour {
 
     float initZ = 0;
     float moveError;
+
+    void Awake() {
+        Instance = this;
+    }
+
 	void Start () {
         initZ = transform.position.z;
         _camera = GetComponent<Camera>();
@@ -36,9 +44,6 @@ public class CamControl : MonoBehaviour {
         Vector3 newPos = Vector3.Lerp(transform.position, player.position, cLerp);
         newPos.z = initZ;
         transform.position = newPos;
-
-
-
 	}
 
     public float Map(float value, float fromSource, float toSource, float fromTarget, float toTarget, bool clamp = false) {
