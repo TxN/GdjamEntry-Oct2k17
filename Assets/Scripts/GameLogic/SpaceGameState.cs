@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EventSys;
 
 public enum WindowState {
     Shown,
@@ -22,6 +23,8 @@ public class SpaceGameState : MonoBehaviour {
 
     ControlsState _controlState = ControlsState.Unlocked;
 
+    Rigidbody2D _playerShip = null;
+
     float _interactTimeout = 1f;
 
     public int MaxCargo {
@@ -42,11 +45,23 @@ public class SpaceGameState : MonoBehaviour {
         }
     }
 
+    public float GetShipVelocity {
+        get {
+            return _playerShip.velocity.magnitude;
+        }
+    }
+
     private void Awake() {
         if (Instance == null) {
             Instance = this;
             DontDestroyOnLoad(this);
         }
+
+        _playerShip = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+    }
+
+    private void OnDestroy() {
+
     }
 
     public ControlsState LockState {
@@ -87,7 +102,9 @@ public class SpaceGameState : MonoBehaviour {
     }
 
     public void DropCapsule(string capsuleId) {
-
+        var ev = new Event_CapsuleDrop();
+        ev.CapsuleId = capsuleId;
+        EventManager.Fire<Event_CapsuleDrop>(ev);   
     }
 
     public void CollectCapsule() {
@@ -95,7 +112,12 @@ public class SpaceGameState : MonoBehaviour {
             return;
         }
 
+        CollectedCapusles.Add(_currentCapsule.CharacterId);
+        Destroy(_currentCapsule);
+        _currentCapsule = null;
     }
+
+
 
 
 

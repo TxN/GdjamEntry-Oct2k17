@@ -7,23 +7,47 @@ public class CamControl : MonoBehaviour {
 
     public float initDelta = 10f;
 
+    public float MinFOV = 45;
+    public float MaxFOV = 65;
+
+    Camera _camera;
+    SpaceGameState _state = null;
+
+    float _prevFov = 0;
+
     float initZ = 0;
     float moveError;
-	void Start () 
-    {
+	void Start () {
         initZ = transform.position.z;
+        _camera = GetComponent<Camera>();
+        _state = SpaceGameState.Instance;
+        _prevFov = MinFOV;
 	}
+
+    void Update() {
+        float newFOV = Map(_state.GetShipVelocity, 0, 15, MinFOV, MaxFOV, true);
+        _prevFov = Mathf.Lerp(_prevFov, newFOV, 2 * Time.deltaTime);
+        _camera.fieldOfView = _prevFov;
+    }
 	
-	void LateUpdate ()
-    {
+	void LateUpdate () {
         moveError = Vector3.Distance(transform.position, player.position) - initDelta;
         float cLerp = lerpCoef.Evaluate(moveError);
         Vector3 newPos = Vector3.Lerp(transform.position, player.position, cLerp);
         newPos.z = initZ;
         transform.position = newPos;
-        //Debug.Log(moveError);
+
+
+
 	}
 
+    public float Map(float value, float fromSource, float toSource, float fromTarget, float toTarget, bool clamp = false) {
+        float val =  (value - fromSource) / (toSource - fromSource) * (toTarget - fromTarget) + fromTarget;
+        if (clamp) {
+            val = Mathf.Clamp(val, fromTarget, toTarget);
+        }
+        return val;
+    }
 
 
 }

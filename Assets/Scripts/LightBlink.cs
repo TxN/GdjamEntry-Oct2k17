@@ -24,12 +24,11 @@ public class LightBlink : MonoBehaviour {
         if (ren) {
             _mat = ren.materials[0];
             _initColor = _mat.GetColor("_EmissionColor");
-            Debug.Log("blink cfg");
         }
 
         _seq = DOTween.Sequence();
         float initIntensity = _light.intensity;
-        _light.intensity = 0;
+       // _light.intensity = 0;
         _seq.Append(_light.DOIntensity(0, CycleTime * 0.5f));
 
         _seq.Append(_light.DOIntensity(initIntensity, CycleTime * 0.5f));
