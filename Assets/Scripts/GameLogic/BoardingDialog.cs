@@ -28,11 +28,11 @@ public class BoardingDialog : MonoBehaviour {
             Init();
         }
 
-        if (_windowState != WindowState.Shown) {
+        if (_windowState != WindowState.Hidden) {
             return;
         }
 
-        PassengerInfo info = Resources.Load<GameObject>("PassengerInfo/"+ passengerID).GetComponent<PassengerInfo>();
+    /*    PassengerInfo info = Resources.Load<GameObject>("PassengerInfo/"+ passengerID).GetComponent<PassengerInfo>();
 
         if (info.Portrait != null) {
             PortraitSprite.sprite = info.Portrait;
@@ -44,7 +44,7 @@ public class BoardingDialog : MonoBehaviour {
 
         UpperText.text = info.FirstDesc;
         SecondText.text = info.SecondDesc;
-
+       */
 
         _windowState = WindowState.Shown;
         gameObject.SetActive(true);
@@ -57,7 +57,7 @@ public class BoardingDialog : MonoBehaviour {
             Init();
         }
 
-        if (_windowState != WindowState.Hidden) {
+        if (_windowState != WindowState.Shown) {
             return;
         }
 

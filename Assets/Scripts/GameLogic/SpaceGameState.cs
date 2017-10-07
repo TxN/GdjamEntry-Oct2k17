@@ -22,6 +22,7 @@ public class SpaceGameState : MonoBehaviour {
 
     ControlsState _controlState = ControlsState.Unlocked;
 
+    float _interactTimeout = 1f;
 
     public int MaxCargo {
         get {
@@ -71,9 +72,15 @@ public class SpaceGameState : MonoBehaviour {
 
     SafeCapsule _currentCapsule = null;
     public void InteractWithCapsule(SafeCapsule capsule) {
+
+        if (Time.time < capsule.LastInteractTime + _interactTimeout) {
+            return;
+        }
+
         LockState = ControlsState.Locked;
         _currentCapsule = capsule;
         if (_currentCapsule) {
+            _currentCapsule.LastInteractTime = Time.time;
             PassengerDialog.ShowWindow(_currentCapsule.CharacterId);
         }
         
