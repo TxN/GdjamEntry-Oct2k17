@@ -6,6 +6,7 @@ public class RadarLogic : MonoBehaviour {
 	public GameObject dot;
 	public Dictionary<string, GameObject> dots;
 	public float vecCoef = 100f;
+	public float maxAmpl = 100;
 	//Dictionary<string, GameObject> capsules = SpaceGameState.Instance.SpawnedCapsules;
 	Dictionary<string, GameObject> capsules;
 
@@ -47,8 +48,8 @@ public class RadarLogic : MonoBehaviour {
 			//Vector3 relativePos = playerPos - capsulePos;
 			Vector3 relativePos =  capsulePos - playerPos;
 
-
 			relativePos *= vecCoef;
+			relativePos = Vector3.ClampMagnitude(relativePos, maxAmpl);
 			//relativePos = new Vector3 (relativePos.x + interfaceShift.x, relativePos.y + interfaceShift.y, 0);
 			return relativePos;
 		} else
