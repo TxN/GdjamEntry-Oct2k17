@@ -99,6 +99,15 @@ public class SpaceGameState : MonoBehaviour {
         _capsuleManager.SpawnCapsules();
     }
 
+    void Update() {
+        if (LockState == ControlsState.Unlocked) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                Jump();
+            }
+            
+        }
+    }
+
     private void OnDestroy() {
 
     }
@@ -159,7 +168,10 @@ public class SpaceGameState : MonoBehaviour {
 
 
 
-
+    public void Jump() {
+        WarpEffect effect = _playerShip.GetComponent<WarpEffect>();
+        effect.enabled = true;
+    }
 
 
 

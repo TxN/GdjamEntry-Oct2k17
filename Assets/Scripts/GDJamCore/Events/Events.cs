@@ -12,4 +12,8 @@ namespace EventSys {
     public struct Event_Accelerate {
         public float direction;
     }
+
+    public struct Event_Jump {
+
+    }
 }
