@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpaceParticlesLevel2 : MonoBehaviour {
-
+public class SpaceParticlesLevel1 : MonoBehaviour {
 	private Transform tx;
 	private ParticleSystem.Particle[] points;
 
@@ -22,7 +21,6 @@ public class SpaceParticlesLevel2 : MonoBehaviour {
 	public float lowRnd = 0;
 	public float hiRnd = 10;
 	//public float parallaxRate = 0.5;
-
 	// Use this for initialization
 	void Start () {
 		tx = transform;
@@ -40,8 +38,6 @@ public class SpaceParticlesLevel2 : MonoBehaviour {
 			points[i].position = Random.insideUnitCircle * starDistance + (Vector2)tx.position;
 			Vector3 offset = new Vector3 (points [i].position.x, points [i].position.y, zOffset);
 			points [i].position = offset;
-			//points [i].angularVelocity = Random.Range (-100, 100);
-			//points [i].rotation = Random.Range (-100, 100);
 			points[i].color = new Color(1, 1, 1, 1);
 			if (randomizeSize) {
 				points [i].size = Random.Range (lowRnd, hiRnd);
@@ -49,42 +45,8 @@ public class SpaceParticlesLevel2 : MonoBehaviour {
 			else points[i].size = starSize;
 		}
 	}
-
-	
 	// Update is called once per frame
 	void Update () {
 		if (points == null) CreateStars();
-
-		counter++;
-
-		for (int i = 0; i < starsMax; i++) {
-			if (i % 2 == 0) {
-				points [i].rotation += 3 * Time.deltaTime;
-			} else
-				points [i].rotation -= 3 * Time.deltaTime;
-			//points [i].rotation += 1 * Time.deltaTime;
-		}
-
-		if (counter == updateEvery) {
-			counter = 0;
-
-			for (int i = 0; i < starsMax; i++) {
-
-				if ((points [i].position - tx.position).sqrMagnitude > starDistanceSqr) {
-					//points [i].position = Random.insideUnitSphere.normalized * starDistance + tx.position;
-					points [i].position = Random.insideUnitCircle.normalized * starDistance + (Vector2)tx.position;
-					Vector3 offset = new Vector3 (points [i].position.x, points [i].position.y, zOffset);
-					points [i].position = offset;
-				}
-
-				//if ((points [i].position - tx.position).sqrMagnitude <= starClipDistanceSqr) {
-				//if ((points [i].position - tx.position).sqrMagnitude <= starClipDistanceSqr) {
-				//	float percent = (points [i].position - tx.position).sqrMagnitude / starClipDistanceSqr;
-				//	points [i].color = new Color (1, 1, 1, percent);
-				//	points [i].size = percent * starSize;
-				//}
-			}
-			pSystem.SetParticles (points, points.Length);
-		}
 	}
 }
