@@ -59,6 +59,7 @@ public class CapsuleManager : MonoBehaviour {
             caps.transform.position = pos;
             caps.transform.parent = transform;
             caps.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-100f, 100f);
+            SpawnedCapsules.Add(item.Id, caps);
         }
     }
 

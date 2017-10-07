@@ -148,7 +148,7 @@ public class SpaceGameState : MonoBehaviour {
 
         CollectedCapusles.Add(_currentCapsule.CharacterId);
         EventManager.Fire<Event_CapsuleCollect>(new Event_CapsuleCollect { CapsuleId = _currentCapsule.CharacterId });
-        Destroy(_currentCapsule);
+        Destroy(_currentCapsule.gameObject);
         _currentCapsule = null;
     }
 
