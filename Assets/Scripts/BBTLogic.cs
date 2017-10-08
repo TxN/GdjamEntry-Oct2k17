@@ -32,7 +32,8 @@ public class BBTLogic : MonoBehaviour {
 
 			break;
 		case "DoctorMan":
-			text = "DoctorMan";
+			if (!CollectedCapusles.Contains ("TeacherWoman")) {text = "DoctorMan <-> TeacherWoman quest text";}
+			else text="DoctorMan";
 			break;
 		case "DoctorWoman":
 			text = "DoctorWoman";
@@ -47,14 +48,16 @@ public class BBTLogic : MonoBehaviour {
 			text = "Poet";
 			break;
 		case "Preacher":
-			text = "Preacher";
+			if (!CollectedCapusles.Contains ("Soldier")) {text = "Preacher <-> Soldier quest text";}
+			else text="Preacher";
 			break;
 		case "Scientist":
 			if (!CollectedCapusles.Contains ("DoctorWoman")) {text = "DoctorWoman quest text";}
 			else text="Scientist";
 			break;
 		case "Soldier":
-			text = "Soldier";
+			if (!CollectedCapusles.Contains ("Preacher")) {text = "Soldier <-> Preacher quest text";}
+			else text="Soldier";
 			break;
 		case "Teacher":
 			text = "Teacher";

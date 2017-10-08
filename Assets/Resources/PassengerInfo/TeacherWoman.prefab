@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4443069170682182}
   - component: {fileID: 114380104213388900}
   m_Layer: 0
-  m_Name: Teacher
+  m_Name: TeacherWoman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,8 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c07920097f98224eb08a6a05cd9d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Portrait: {fileID: 0}
-  Id: DoctorWoman
+  Portrait: {fileID: 21300000, guid: f5828476e3dac26458407f8580b2a236, type: 3}
+  Id: TeacherWoman
   FirstDesc: Yah we yah
   SecondDesc: Rooo rooo roooo
   SkipOnSpawn: 0

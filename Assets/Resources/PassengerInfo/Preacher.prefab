@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c07920097f98224eb08a6a05cd9d4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Portrait: {fileID: 0}
+  Portrait: {fileID: 21300000, guid: f7d85c40012d29f4aae729b168aa6a6a, type: 3}
   Id: Preacher
   FirstDesc: Ro mo ho
   SecondDesc: Za be za
