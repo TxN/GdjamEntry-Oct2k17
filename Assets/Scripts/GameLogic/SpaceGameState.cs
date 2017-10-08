@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using EventSys;
+using DG.Tweening;
 
 public enum WindowState {
     Shown,
@@ -34,6 +35,9 @@ public class SpaceGameState : MonoBehaviour {
     private float _fuelLevel = 0f;
 
     private CapsuleManager _capsuleManager;
+
+    public CanvasGroup Fader;
+    Sequence _fadeSeq = null;
 
     public float FuelLevel {
         get {
@@ -97,6 +101,11 @@ public class SpaceGameState : MonoBehaviour {
 
     void Start() {
         _capsuleManager.SpawnCapsules();
+        Fader.gameObject.SetActive(true);
+        _fadeSeq = TweenHelper.ReplaceSequence(_fadeSeq);
+        _fadeSeq.AppendInterval(0.5f);
+        _fadeSeq.Append(Fader.DOFade(0, 0.5f));
+        _fadeSeq.AppendCallback(() => { Fader.gameObject.SetActive(false); });
     }
 
     void Update() {
@@ -109,7 +118,7 @@ public class SpaceGameState : MonoBehaviour {
     }
 
     private void OnDestroy() {
-
+        _fadeSeq = TweenHelper.ReplaceSequence(_fadeSeq);
     }
 
     public ControlsState LockState {
