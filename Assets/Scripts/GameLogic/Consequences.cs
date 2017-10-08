@@ -93,12 +93,6 @@ public class Consequences : MonoBehaviour {
 		if (_state.IsOnBoard("Buisnessman")&& ( final_state[0] == 0) ) {final_state[2] = 1;}
 		if (_state.IsOnBoard("Engineer") && (final_state[2] == 0)) {final_state[3] = 1;}
 		if ((_state.IsOnBoard("TeacherWoman") || _state.IsOnBoard("Teacher")) && _state.IsOnBoard("Farmer")) {final_state[3] = 0;}
-		if (!(_state.IsOnBoard("DoctorMan") || _state.IsOnBoard("DoctorWoman")))
-		{
-			for (int i = 0; i < final_state.Length; i++) {
-				final_state [i] = 9;
-			}
-		}
 
         string k = final_state[0] + " " + final_state[1] + " " + final_state[2] + " " + final_state[3];
 
@@ -116,6 +110,10 @@ public class Consequences : MonoBehaviour {
             }
         } else {
             res = defaultText;
+        }
+
+        if (!( _state.IsOnBoard("DoctorMan") || _state.IsOnBoard("DoctorWoman"))) {
+            res = "You landed to the planet, but its simplest form of life, viruses, defeated you. It’s such a tragedy, that no one could cure people.";
         }
 
         return res;
