@@ -72,7 +72,7 @@ public class SpaceGameState : MonoBehaviour {
 
     public bool CanBoard {
         get {
-            return CargoCount <= MaxCargo;
+            return CargoCount < MaxCargo;
         }
     }
 
