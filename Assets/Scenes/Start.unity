@@ -542,9 +542,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.25
-  m_Text: "The colonization spaceship has crashed and lost all capsules with people\r\nYou're
-    controlling a safeboat which can make a hyperjump\r\nYou can pick only five people
-    until fuel runs out"
+  m_Text: "The colonization spaceship has crashed and lost all capsules with people\r\nYou
+    have a space for only five people\r\nPick them before fuel runs out and make a
+    hyperjump."
 --- !u!222 &690439223
 CanvasRenderer:
   m_ObjectHideFlags: 0
