@@ -5,7 +5,7 @@ using EventSys;
 
 public class BBTLogic : MonoBehaviour {
 
-	public 
+	List<string> CollectedCapusles;
 
 	void Awake() {
 		EventManager.Subscribe<Event_CapsuleCollect>(this, OnCapsuleCollect);
@@ -15,7 +15,7 @@ public class BBTLogic : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-		
+		CollectedCapusles = SpaceGameState.Instance.CollectedCapusles;
 	}
 	
 	// Update is called once per frame
@@ -29,6 +29,7 @@ public class BBTLogic : MonoBehaviour {
 		switch (e.CapsuleId) {
 		case "Buisnessman":
 			text = "Buisnessman";
+
 			break;
 		case "DoctorMan":
 			text = "DoctorMan";
@@ -49,7 +50,8 @@ public class BBTLogic : MonoBehaviour {
 			text = "Preacher";
 			break;
 		case "Scientist":
-			text = "Scientist";
+			if (!CollectedCapusles.Contains ("DoctorWoman")) {text = "DoctorWoman quest text";}
+			else text="Scientist";
 			break;
 		case "Soldier":
 			text = "Soldier";

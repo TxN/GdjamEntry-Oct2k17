@@ -4864,6 +4864,7 @@ GameObject:
   - component: {fileID: 1293029291}
   - component: {fileID: 1293029290}
   - component: {fileID: 1293029292}
+  - component: {fileID: 1293029293}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -4918,6 +4919,17 @@ MonoBehaviour:
     type: 2}
   MaxSpawnRadius: 50
   CapsuleBoundingRadius: 1
+--- !u!114 &1293029293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1293029289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c1707b3eae804469e202266fac26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1391309537
 GameObject:
   m_ObjectHideFlags: 0
