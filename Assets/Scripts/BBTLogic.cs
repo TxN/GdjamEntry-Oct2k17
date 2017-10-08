@@ -91,7 +91,10 @@ public class BBTLogic : MonoBehaviour {
 			text = "Some random dude";
 			break;
 		}
-		SpaceGameState.Instance.BBTManager.ShowBBT(text, 5);
-		//SpaceGameState.Instance.BBTManager.ShowBBT(e.CapsuleId, 5);
+		SpaceGameState.Instance.BBTManager.ShowBBT(text, 3);
+
+        if (!SpaceGameState.Instance.CanBoard) {
+            SpaceGameState.Instance.BBTManager.ShowBBT("Shuttle is full. We can't get more people.", 3);
+        }
 	}
 }
