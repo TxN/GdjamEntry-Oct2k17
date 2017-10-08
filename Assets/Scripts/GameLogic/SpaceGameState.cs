@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using EventSys;
 using DG.Tweening;
 
@@ -59,7 +60,7 @@ public class SpaceGameState : MonoBehaviour {
 
     public int MaxCargo {
         get {
-            return 10;
+            return 5;
         }
     }
 
@@ -111,7 +112,7 @@ public class SpaceGameState : MonoBehaviour {
     void Update() {
         if (LockState == ControlsState.Unlocked) {
             if (Input.GetKeyDown(KeyCode.Space)) {
-                Jump();
+         //       Jump();
             }
             
         }
@@ -181,6 +182,16 @@ public class SpaceGameState : MonoBehaviour {
         EventManager.Fire(new Event_Jump());
         WarpEffect effect = _playerShip.GetComponent<WarpEffect>();
         effect.enabled = true;
+
+        _fadeSeq = TweenHelper.ReplaceSequence(_fadeSeq);
+        Fader.gameObject.SetActive(true);
+        _fadeSeq.AppendInterval(3f);
+        _fadeSeq.Append(Fader.DOFade(1, 1));
+        _fadeSeq.AppendCallback(LoadTitles);
+    }
+
+    public void LoadTitles() {
+        SceneManager.LoadScene("Titles");
     }
 
 
