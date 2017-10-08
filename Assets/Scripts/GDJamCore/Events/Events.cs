@@ -16,4 +16,7 @@ namespace EventSys {
     public struct Event_Jump {
 
     }
+    public struct Activate_Quest {
+        public string Id;
+    }
 }

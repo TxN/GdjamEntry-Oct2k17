@@ -1,16 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.UI;
 
 public class Consequences : MonoBehaviour {
-
-	// Use this for initialization
+    public Text EndText = null;
 	void Start () {
-		
+        EndText.text = MakeEndText();
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    string MakeEndText() {
+        string output = "";
+
+
+
+
+        output += "\n2017\nArtGames Jam Novosibirsk";
+        return output;
+    }
 }
