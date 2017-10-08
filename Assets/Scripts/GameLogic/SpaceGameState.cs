@@ -87,6 +87,12 @@ public class SpaceGameState : MonoBehaviour {
 		}
 	}
 
+    public CapsuleManager CapsManager {
+        get {
+            return _capsuleManager;
+        }
+    }
+
     private void Awake() {
         if (Instance == null) {
             Instance = this;
