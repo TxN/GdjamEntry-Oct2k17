@@ -19,9 +19,9 @@ public class WarpEffect : MonoBehaviour {
         _seq.Append(EffectObj.transform.DOScale(1.1f, 0.2f));
         _seq.Append(EffectObj.transform.DOPunchScale(new Vector3(0.1f, 0.1f, 0.1f), 0.2f, 8, 1));
         _seq.AppendInterval(0.3f);
-        _seq.Append(transform.DOLocalRotate(new Vector3(0, 0, 0), 0.5f, RotateMode.Fast));
+        _seq.Append(transform.DOLocalRotate(new Vector3(0, 0, -90), 0.5f, RotateMode.Fast));
         _seq.AppendCallback(() => { CamControl.Instance.enabled = false; });
-        _seq.Append(transform.DOLocalMoveY((curPos.y + 150), 0.75f));
+        _seq.Append(transform.DOLocalMoveX((curPos.x + 150), 0.75f));
 
     }
 

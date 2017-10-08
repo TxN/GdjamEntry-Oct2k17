@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EventSys;
 
 public class RadarLogic : MonoBehaviour {
-	public GameObject dot;
+	public GameObject Dot;
 	public Dictionary<string, GameObject> dots;
 	public float vecCoef = 100f;
 	public float maxAmpl = 100;
@@ -13,18 +14,20 @@ public class RadarLogic : MonoBehaviour {
 	private bool first = true;
 	// Use this for initialization
 	void Start () {
-
+        EventManager.Subscribe<Event_CapsuleCollect>(this, OnCapsuleCollect);
 	}
 
+    void OnDestroy() {
+        EventManager.Unsubscribe<Event_CapsuleCollect>(OnCapsuleCollect);
+    }
 	
-	// Update is called once per frame
 	void Update () {
 		if (first) {
 			first = false;
 			capsules = SpaceGameState.Instance.SpawnedCapsules;
 			dots = new Dictionary<string, GameObject>();
 			foreach (var item in capsules) {
-				GameObject d = Instantiate (dot);
+				GameObject d = Instantiate (Dot);
 				d.SetActive (true);
 				d.transform.SetParent (this.transform);
 				dots.Add(item.Key, d);
@@ -54,7 +57,13 @@ public class RadarLogic : MonoBehaviour {
 			return relativePos;
 		} else
 			return capsulePos;
-
-		//Vector3.ClampMagnitude(relativePos, 
 	}
+
+    void OnCapsuleCollect(Event_CapsuleCollect e) {
+        GameObject dot = null;
+        if (dots.TryGetValue(e.CapsuleId, out dot)) {
+            dots.Remove(e.CapsuleId);
+            Destroy(dot);
+        }
+    }
 }
