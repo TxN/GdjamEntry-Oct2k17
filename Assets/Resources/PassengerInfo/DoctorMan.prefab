@@ -52,7 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Portrait: {fileID: 21300000, guid: 239ea26e12ce83446829ee60f58ee2ad, type: 3}
+  FullName: 
   Id: DoctorMan
-  FirstDesc: Yah we yah
-  SecondDesc: Rooo rooo roooo
+  FirstDesc: 'Name: |Arkadiy Belyi |Age: |38 y.o. |Speciality: Doctor | Sister - Inna
+    Belaya '
+  SecondDesc: 'Laureate of Arkadiy Belyi price '
   SkipOnSpawn: 0

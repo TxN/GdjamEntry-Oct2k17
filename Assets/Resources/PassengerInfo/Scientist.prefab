@@ -52,7 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Portrait: {fileID: 21300000, guid: c9669e56430fa564c81994c5ebc87645, type: 3}
+  FullName: Vasiliy Sych
   Id: Scientist
-  FirstDesc: Yah we yah
-  SecondDesc: Rooo rooo roooo
+  FirstDesc: 'Name: |Vasiliy Sych |Age: |46 y.o. |Speciality: Scientist |Wife - Lyudmila
+    Sych'
+  SecondDesc: 'Take b&w photos '
   SkipOnSpawn: 0
