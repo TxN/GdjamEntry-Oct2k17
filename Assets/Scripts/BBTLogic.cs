@@ -31,11 +31,17 @@ public class BBTLogic : MonoBehaviour {
 			text = "Let's say, it was a great deal!";
 			break;
 		case "DoctorMan":
-			if (!CollectedCapusles.Contains ("TeacherWoman")) {text = "Can you help me please? I've lost my sister, can you find her? I haven't seen her for years.";}
+			if (!CollectedCapusles.Contains ("TeacherWoman")) {
+				text = "Can you help me please? I've lost my sister, can you find her? I haven't seen her for years.";
+				EventManager.Fire (new Activate_Quest{ Id = "TeacherWoman" });
+			}
 			else text="Ghm, 75 Beats per minute. Good enough";
 			break;
 		case "DoctorWoman":
-			if (!CollectedCapusles.Contains ("Scientist")) {text = "Oh! Oh my! Vasiliy! Vasiliy, where are you?";}
+			if (!CollectedCapusles.Contains ("Scientist")) {
+				text = "Oh! Oh my! Vasiliy! Vasiliy, where are you?";
+				EventManager.Fire (new Activate_Quest{ Id = "Scientist" });
+			}
 			else text="Hello? Is anybode there?";
 			break;
 		case "Engineer":
@@ -48,22 +54,34 @@ public class BBTLogic : MonoBehaviour {
 			text = "I will write poem about that.";
 			break;
 		case "Preacher":
-			if (!CollectedCapusles.Contains ("Soldier")) {text = "Excuse me, sir. Where can I find my son? Oh... I see. If you'd be so kind...";}
+			if (!CollectedCapusles.Contains ("Soldier")) {
+				text = "Excuse me, sir. Where can I find my son? Oh... I see. If you'd be so kind...";
+				EventManager.Fire (new Activate_Quest{ Id = "Soldier" });
+			}
 			else text="God bless you, sir.";
 			break;
 		case "Scientist":
-			if (!CollectedCapusles.Contains ("DoctorWoman")) {text = "Lyudmila! Lyudmila! Please, find my wife!";}
+			if (!CollectedCapusles.Contains ("DoctorWoman")) {
+				text = "Lyudmila! Lyudmila! Please, find my wife!";
+				EventManager.Fire (new Activate_Quest{ Id = "DoctorWoman" });
+			}
 			else text="Khh-khh. Breathe, Vasiliy, breathe...";
 			break;
 		case "Soldier":
-			if (!CollectedCapusles.Contains ("Preacher")) {text = "Sir, no preacher on the board, sir?";}
+			if (!CollectedCapusles.Contains ("Preacher")) {
+				text = "Sir, no preacher on the board, sir?";
+				EventManager.Fire (new Activate_Quest{ Id = "Preacher" });
+			}
 			else text="Sir, yes, SIR!";
 			break;
 		case "Teacher":
 			text = "It was absolutly not my pillow.";
 			break;
 		case "TeacherWoman":
-			if (!CollectedCapusles.Contains ("Scientist")) {text = "I have a brother... But I can't find him. Can... can you find him for me?";}
+			if (!CollectedCapusles.Contains ("Scientist")) {
+				text = "I have a brother... But I can't find him. Can... can you find him for me?";
+				EventManager.Fire (new Activate_Quest{ Id = "Scientist" });
+			}
 			else text="My head... Oh no, it hurts so much!";
 			break;
 		case "Noname":

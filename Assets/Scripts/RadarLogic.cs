@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using EventSys;
 
 public class RadarLogic : MonoBehaviour {
@@ -15,10 +16,12 @@ public class RadarLogic : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         EventManager.Subscribe<Event_CapsuleCollect>(this, OnCapsuleCollect);
+		EventManager.Subscribe<Activate_Quest> (this, OnActivateQuest);
 	}
 
     void OnDestroy() {
         EventManager.Unsubscribe<Event_CapsuleCollect>(OnCapsuleCollect);
+		EventManager.Unsubscribe<Activate_Quest>(OnActivateQuest);
     }
 	
 	void Update () {
@@ -66,4 +69,8 @@ public class RadarLogic : MonoBehaviour {
             Destroy(dot);
         }
     }
+	void OnActivateQuest(Activate_Quest e) {
+		GameObject dot = null;
+		dots [e.Id].GetComponent<Image> ().color = Color.green;
+	}
 }
