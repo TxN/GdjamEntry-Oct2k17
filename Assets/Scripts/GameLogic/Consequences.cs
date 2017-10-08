@@ -9,6 +9,13 @@ public class Consequences : MonoBehaviour {
     public RectTransform Holder = null;
     public CanvasGroup Fader = null;
 
+    public CanvasGroup ImageFader = null;
+    public Image Imageimg = null;
+
+    public Sprite citySpr = null;
+    public Sprite cataSpr = null;
+    public Sprite greenSpr = null;
+
     Sequence _seq = null;
 
     SpaceGameState _state = null;
@@ -22,7 +29,9 @@ public class Consequences : MonoBehaviour {
         _seq.Append(Fader.DOFade(0, 1));
         _seq.AppendInterval(1f);
         _seq.Append(Holder.DOLocalMoveY(3000, 60));
-        _seq.AppendCallback( ()=> { Application.Quit(); });
+      //  _seq.AppendCallback( ()=> { Application.Quit(); });
+
+        Invoke("ShowImage", 30);
 
 	}
 
@@ -103,12 +112,10 @@ public class Consequences : MonoBehaviour {
             {"1 1 0 0", "Despite titanic efforts of comrade the lack of knowledge in chemistry and medicine played its wicked role. After 56 years of colonization process came across with terrible virus and epidemic disease killed everyone. No one could predict that."},
             {"1 1 0 1", "But happiness was not so long. The planet was tortured by technological abuse. After a 300 years of prosperity humanity left the planet as its last breath sounded."},
             {"1 0 0 1", "Despite titanic efforts of comrade, the lack of knowledge in chemistry and medicine played its wicked role. After 56 years of colonization process came across with terrible virus and epidemic disease killed everyone. No one could predict that."},
-            {"0 1 0 0", ""},// netu
             {"0 1 1 0", "Despite titanic efforts of Father Martin, the lack of knowledge in medicine played its wicked role. After 56 years of colonization they came across the terrible virus and epidemic disease killed everyone. No one could predict that. I, the last survivor, who will also slumber into the death soon, has nothing left but bitter truth: it’s only God who roll the Dice."},
             {"0 1 1 1", "But happiness was not so long. The planet was tortured by technological abuse. After a 300 years of prosperity humanity left the planet as its last breath sounded."},
             {"0 1 0 1", "But happiness was not so long. The planet was tortured by technological abuse. After a 300 years of prosperity humanity left the planet as its last breath sounded."},
             {"0 0 1 0", "To our shame, that society has divided too much. Prosperity of every single person without a thought about common wealth brings strife and disorder. In the end, the society fell into civil war. Lasers were delineating the sky, corpses lying around. And everything become authoritarian."},
-            {"0 0 0 1", ""},// netu
         };
 
         string defaultText = "After a long journey to the new planet settlers had finally reached the ground of their new home. They made a treaty that could bear their existence as happy and stable society. Each of them could stand in front of a crowd and made a speech. So they decided that they should restore all traditions. Under the sky of a new planet should rise modern architecture and ancient sculptural masterpiece.";
@@ -128,10 +135,12 @@ public class Consequences : MonoBehaviour {
             if ( HasCompletedQuest()) {
                 string adding = "\n";
                 questWinTexts.TryGetValue(k, out adding);
+                Imageimg.sprite = final_state[3] == 1 ? citySpr : greenSpr;
                 res += adding;
             } else {
                 string adding = "\n";
                 questFailTexts.TryGetValue(k, out adding);
+                Imageimg.sprite = cataSpr;
                 res += adding;
             }
         } else {
@@ -140,8 +149,17 @@ public class Consequences : MonoBehaviour {
 
         if (!( _state.IsOnBoard("DoctorMan") || _state.IsOnBoard("DoctorWoman"))) {
             res = "You landed to the planet, but its simplest form of life, viruses, defeated you. It’s such a tragedy, that no one could cure people.";
+            Imageimg.sprite = cataSpr;
         }
 
         return res;
 	}
+
+    void ShowImage() {
+        Sequence secSec = null;
+        secSec = TweenHelper.ReplaceSequence(secSec);
+        secSec.Append(ImageFader.DOFade(1, 1));
+        secSec.AppendInterval(30f);
+        secSec.AppendCallback(() => { Application.Quit(); });
+    }
 }
