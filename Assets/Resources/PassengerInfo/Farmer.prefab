@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Portrait: {fileID: 21300000, guid: b8f997a7910918647a62ed9cb2d10e25, type: 3}
+  FullName: 
   Id: Farmer
   FirstDesc: Yah we yah
   SecondDesc: Rooo rooo roooo

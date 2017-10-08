@@ -39,6 +39,15 @@ public class CapsuleManager : MonoBehaviour {
         }
     }
 
+    public PassengerInfo GetInfo(string Id) {
+        foreach (var item in _passengerInfoList) {
+            if (item.Id == Id) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     public void SpawnCapsules() {
         if (!_init) {
             Init();
