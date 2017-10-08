@@ -7770,7 +7770,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -154.6, y: -267.4}
+  m_AnchoredPosition: {x: -154.59961, y: -267.4}
   m_SizeDelta: {x: 307.6, y: 534.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &772636281
@@ -7917,7 +7917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 69.2, y: -326.5}
+  m_AnchoredPosition: {x: 69.19922, y: -326.5}
   m_SizeDelta: {x: 138.4, y: 653}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &839263692
@@ -8457,7 +8457,7 @@ MonoBehaviour:
   BBTManager: {fileID: 1837711549}
   PassengerDialog: {fileID: 2017710419}
   CollectedCapusles: []
-  MaxFuelCapacity: 150
+  MaxFuelCapacity: 175
   FuelPerBurn: 1
   Fader: {fileID: 1898658131}
 --- !u!4 &1293029291
@@ -8487,7 +8487,7 @@ MonoBehaviour:
   _passengerInfoList: []
   BasicCapsuleFab: {fileID: 1552654435022114, guid: 9ed9aee35526014479e19711b86f683c,
     type: 2}
-  MaxSpawnRadius: 75
+  MaxSpawnRadius: 65
   CapsuleBoundingRadius: 1
 --- !u!114 &1293029293
 MonoBehaviour:

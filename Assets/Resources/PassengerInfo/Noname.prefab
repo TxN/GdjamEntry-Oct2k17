@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Portrait: {fileID: 21300000, guid: f343fa5fdc3a39840be02d92bfdd9ffc, type: 3}
-  FullName: 
+  FullName: Unknown
   Id: Noname
   FirstDesc: 'Name: |???????? |Age: |??????? y.o. |Speciality: ??????'
   SecondDesc: Who knows (????????)

@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Portrait: {fileID: 21300000, guid: f1076a24b9409a9448876cb690e9bde7, type: 3}
-  FullName: 
+  FullName: Leonid Spartsky
   Id: Teacher
   FirstDesc: 'Name: |Leonid Spartsky  |Age: |23 y.o.|Speciality: Teacher '
   SecondDesc: Makes pillows near the chimney

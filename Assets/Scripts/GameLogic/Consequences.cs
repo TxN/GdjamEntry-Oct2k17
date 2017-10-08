@@ -81,9 +81,35 @@ public class Consequences : MonoBehaviour {
 			{"0 0 0 1", "After a long journey to the new planet settlers had finally reached the ground of their new home. They built a commune and took a role for each of them as his role could be bear by the person. In the beginning, they made a Bill of Andrej Right – principal law of rational life approach. Next, they built a commune and took a role for each of them as his role could be bear by the person."},
 		};
 
-        Dictionary<string, string> questWinTexts = new Dictionary<string, string>();
+        Dictionary<string, string> questWinTexts = new Dictionary<string, string>() {
+            {"0 0 0 0", " So the culture was above their heads, and people tried to overpass it, jump higher than clouds. They stretched the globe above and reached the mix of stories and situations. “The real life”, as you can call it."},
+            {"1 0 0 0", "As the society grew, new drawback got across its way. Honored men of science under the fair arm of comrade proceeded a lot of researches and overpassed every wicked call from nature. Hail to the society and Big Comrade!"},
+            {"1 1 0 1", "Hence, every obstacle before the new civilization fell as a weak fence. As it’s said, God accompanies faithful. And so was built the Heaven on earth."},
+            {"1 1 0 0", ""},// netu
+            {"1 0 0 1", "As the society grew, new drawback got across its way. Honored men of science under the fair arm of comrade proceeded a lot of researches and overpassed every wicked call from nature. Hail to the society and Big Comrade!"},
+            {"0 1 1 0", ""},
+            {"0 1 0 0", "And this culture grows with blossom even now."},
+            {"0 1 1 1", "Hence, every obstacle before the new civilization fell as a weak fence. As it’s said, God accompanies faithful. And so was built the Heaven on earth."},
+            {"0 1 0 1", "Hence, every obstacle before the new civilization fell as a weak fence. As it’s said, God accompanies faithful. And so was built the Heaven on earth."},
+            {"0 0 1 0", "And it was great."},
+            {"0 0 0 1", ""},// netu
 
-        Dictionary<string, string> questFailTexts = new Dictionary<string, string>();
+
+        };
+
+        Dictionary<string, string> questFailTexts = new Dictionary<string, string>() {
+            {"0 0 0 0", "Despite every single moment of their freedom, it could not save them from the reality, where bad thing happened. People of this civilization were trying to escape from pain, but it couldn’t work. As the poet said, carpe diem, future is already here."},
+            {"1 0 0 0", "Despite titanic efforts of comrade, the lack of knowledge in chemistry and medicine played its wicked role. After 56 years of colonization process came across with terrible virus and epidemic disease killed everyone. No one could predict that."},
+            {"1 1 0 0", "Despite titanic efforts of comrade the lack of knowledge in chemistry and medicine played its wicked role. After 56 years of colonization process came across with terrible virus and epidemic disease killed everyone. No one could predict that."},
+            {"1 1 0 1", "But happiness was not so long. The planet was tortured by technological abuse. After a 300 years of prosperity humanity left the planet as its last breath sounded."},
+            {"1 0 0 1", "Despite titanic efforts of comrade, the lack of knowledge in chemistry and medicine played its wicked role. After 56 years of colonization process came across with terrible virus and epidemic disease killed everyone. No one could predict that."},
+            {"0 1 0 0", ""},// netu
+            {"0 1 1 0", "Despite titanic efforts of Father Martin, the lack of knowledge in medicine played its wicked role. After 56 years of colonization they came across the terrible virus and epidemic disease killed everyone. No one could predict that. I, the last survivor, who will also slumber into the death soon, has nothing left but bitter truth: it’s only God who roll the Dice."},
+            {"0 1 1 1", "But happiness was not so long. The planet was tortured by technological abuse. After a 300 years of prosperity humanity left the planet as its last breath sounded."},
+            {"0 1 0 1", "But happiness was not so long. The planet was tortured by technological abuse. After a 300 years of prosperity humanity left the planet as its last breath sounded."},
+            {"0 0 1 0", "To our shame, that society has divided too much. Prosperity of every single person without a thought about common wealth brings strife and disorder. In the end, the society fell into civil war. Lasers were delineating the sky, corpses lying around. And everything become authoritarian."},
+            {"0 0 0 1", ""},// netu
+        };
 
         string defaultText = "After a long journey to the new planet settlers had finally reached the ground of their new home. They made a treaty that could bear their existence as happy and stable society. Each of them could stand in front of a crowd and made a speech. So they decided that they should restore all traditions. Under the sky of a new planet should rise modern architecture and ancient sculptural masterpiece.";
 

@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Portrait: {fileID: 21300000, guid: 48e9c9d2f1894e54287aecd8a5f0ef7b, type: 3}
-  FullName: 
+  FullName: Roderick Ivanov
   Id: Soldier
   FirstDesc: 'Name: |Roderick Ivanov |Age: |18 y.o. |Speciality: MIlitary| Father
     - Martin '

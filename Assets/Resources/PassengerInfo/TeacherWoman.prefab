@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Portrait: {fileID: 21300000, guid: f5828476e3dac26458407f8580b2a236, type: 3}
-  FullName: 
+  FullName: Inna Belaya
   Id: TeacherWoman
   FirstDesc: "Name: |Inna Belaya  |Age: |29 y.o. |Speciality: Teacher |Brother \u2013
     Arkadiy Belyi"

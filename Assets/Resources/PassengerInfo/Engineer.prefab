@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Portrait: {fileID: 21300000, guid: 56e3f840b032de94eb15ac2afd6e8996, type: 3}
-  FullName: 
+  FullName: 'Andrej Right '
   Id: Engineer
   FirstDesc: 'Name: |Andrej Right |Age: |32 y.o. |Speciality: Engineer '
   SecondDesc: Forgets to lock up the door

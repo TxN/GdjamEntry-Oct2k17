@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Portrait: {fileID: 21300000, guid: 85676a9212eac0d4d969ea225ef7ada4, type: 3}
-  FullName: 
+  FullName: Ivan Mitsuhiro
   Id: Poet
   FirstDesc: 'Name: |Ivan Mitsuhiro |Age: |46 y.o. |Speciality: Poet '
   SecondDesc: 'Prefers mothers Okroshka '
