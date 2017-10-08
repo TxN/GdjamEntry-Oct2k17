@@ -49,7 +49,7 @@ public class BoardingDialog : MonoBehaviour {
         _windowState = WindowState.Shown;
         gameObject.SetActive(true);
 
-        AcceptButton.enabled = _state.CanBoard;
+//        AcceptButton.enabled = _state.CanBoard;
     }
 
     public void HideWindow() {
@@ -75,6 +75,9 @@ public class BoardingDialog : MonoBehaviour {
 
         if (_windowState != WindowState.Shown) {
             return;
+        }
+        if (!_state.CanBoard) {
+            _state.BBTManager.ShowBBT("You can't take on board anymore.", 2, true);
         }
 
         _state.CollectCapsule();
