@@ -93,6 +93,15 @@ public class SpaceGameState : MonoBehaviour {
         }
     }
 
+    public bool IsOnBoard(string id) {
+        foreach (var item in CollectedCapusles) {
+            if (item == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void Awake() {
         if (Instance == null) {
             Instance = this;
