@@ -62,7 +62,7 @@ public class Consequences : MonoBehaviour {
                 output += "\n- "+ pname;
             }
         }
-        output += "\nFreezed forever in deep space:\n";
+        output += "\n\nFreezed forever in deep space:\n";
         for (int i = 0; i < _state.CapsManager._passengerInfoList.Count; i++) {
             bool saved = _state.IsOnBoard( _state.CapsManager._passengerInfoList[i].Id );
             if (!saved) {
@@ -71,7 +71,7 @@ public class Consequences : MonoBehaviour {
             }
         }
 
-        output += "\n\n2017\nArtGames Jam Novosibirsk";
+     //   output += "\n\n2017\nArtGames Jam Novosibirsk";
         return output;
     }
 
@@ -160,6 +160,7 @@ public class Consequences : MonoBehaviour {
         secSec = TweenHelper.ReplaceSequence(secSec);
         secSec.Append(ImageFader.DOFade(1, 1));
         secSec.AppendInterval(30f);
+        secSec.Append(ImageFader.DOFade(0,1));
         secSec.AppendCallback(() => { Application.Quit(); });
     }
 }
