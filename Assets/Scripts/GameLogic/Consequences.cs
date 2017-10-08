@@ -28,10 +28,10 @@ public class Consequences : MonoBehaviour {
         Fader.gameObject.SetActive(true);
         _seq.Append(Fader.DOFade(0, 1));
         _seq.AppendInterval(1f);
-        _seq.Append(Holder.DOLocalMoveY(3000, 60));
+        _seq.Append(Holder.DOLocalMoveY(3000, 80));
       //  _seq.AppendCallback( ()=> { Application.Quit(); });
 
-        Invoke("ShowImage", 30);
+        Invoke("ShowImage", 45);
 
 	}
 
@@ -54,7 +54,7 @@ public class Consequences : MonoBehaviour {
 
     string MakeEndText() {
         string output = CreateAftermath();
-
+        output += "\n";
         if (_state.CollectedCapusles.Count > 0) {
             output += "\nSaved:\n";
             for (int i = 0; i < _state.CollectedCapusles.Count; i++) {
@@ -152,7 +152,7 @@ public class Consequences : MonoBehaviour {
             Imageimg.sprite = cataSpr;
         }
 
-        return res;
+        return res + "\n";
 	}
 
     void ShowImage() {
