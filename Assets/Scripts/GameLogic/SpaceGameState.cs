@@ -29,7 +29,7 @@ public class SpaceGameState : MonoBehaviour {
 
     float _interactTimeout = 1f;
 
-    public float MaxFuelCapacity = 250f;
+    public float MaxFuelCapacity = 150f;
 
     public float FuelPerBurn = 1f;
 
@@ -55,6 +55,7 @@ public class SpaceGameState : MonoBehaviour {
     public void BurnFuel() {
         if (CanBurn) {
             _fuelLevel -= FuelPerBurn;
+            Debug.Log(_fuelLevel);
         }
     }
 

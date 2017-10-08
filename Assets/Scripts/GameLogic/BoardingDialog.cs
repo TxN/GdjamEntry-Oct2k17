@@ -42,8 +42,8 @@ public class BoardingDialog : MonoBehaviour {
             PortraitSprite.sprite = null;
         }
 
-        UpperText.text = info.FirstDesc;
-        SecondText.text = info.SecondDesc;
+        UpperText.text  =  info.FirstDesc.Replace("|","\n");
+        SecondText.text = info.SecondDesc.Replace("|", "\n");
        
 
         _windowState = WindowState.Shown;
