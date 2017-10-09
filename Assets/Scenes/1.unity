@@ -7587,7 +7587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.916}
+  m_Color: {r: 0.7647059, g: 0.7955376, b: 1, a: 0.916}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7929,8 +7929,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 69.19922, y: -326.5}
-  m_SizeDelta: {x: 138.4, y: 653}
+  m_AnchoredPosition: {x: 73.66, y: -333.8}
+  m_SizeDelta: {x: 138.4, y: 649.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &839263692
 MonoBehaviour:
@@ -8466,10 +8466,10 @@ RectTransform:
   m_Father: {fileID: 169294636}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -613.33, y: 57.5}
-  m_SizeDelta: {x: 138.4, y: 653}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 69.6, y: -326.5}
+  m_SizeDelta: {x: 138.40002, y: 667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1267282888
 MonoBehaviour:
@@ -8808,8 +8808,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.3999996, y: -0.000030517578}
-  m_SizeDelta: {x: 1264.4, y: 668}
+  m_AnchoredPosition: {x: -12.749964, y: -3.8500214}
+  m_SizeDelta: {x: 1428.1001, y: 799.1001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1403071442
 MonoBehaviour:
@@ -8823,7 +8823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.04411763, g: 0.0055147037, b: 0.0055147037, a: 0.712}
+  m_Color: {r: 0.04411763, g: 0.0055147037, b: 0.0055147037, a: 0.359}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -12444,6 +12444,11 @@ Prefab:
         type: 2}
       propertyPath: m_SizeDelta.y
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114837255435501544, guid: 5dd4a19192a462048b98e59632f883c1,
+        type: 2}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5dd4a19192a462048b98e59632f883c1, type: 2}
