@@ -15,6 +15,8 @@ public class CapsuleManager : MonoBehaviour {
 
     bool _init = false;
 
+	GameObject _capsuleHolder = null;
+
     void Awake() {
         EventManager.Subscribe<Event_CapsuleCollect>(this, OnCapsuleCollect);
     }
@@ -31,6 +33,9 @@ public class CapsuleManager : MonoBehaviour {
 
     void Init() {
         _init = true;
+		_capsuleHolder = new GameObject("CapsuleHolder");
+		_capsuleHolder.transform.parent = null;
+
         Object[] _capsuleInfoGos;
         _capsuleInfoGos = Resources.LoadAll("PassengerInfo", typeof(GameObject));
         foreach (GameObject item in _capsuleInfoGos) {
@@ -66,7 +71,7 @@ public class CapsuleManager : MonoBehaviour {
                 pos = Random.insideUnitCircle * MaxSpawnRadius + (Vector2)transform.position;
             }
             caps.transform.position = pos;
-            caps.transform.parent = transform;
+            caps.transform.parent = _capsuleHolder.transform;
             caps.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-100f, 100f);
             SpawnedCapsules.Add(item.Id, caps);
         }

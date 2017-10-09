@@ -49,7 +49,10 @@ public class Consequences : MonoBehaviour {
     }	
 
 	void Update () {
-		
+		if ( Input.GetKeyDown(KeyCode.R)) {
+			Persistence.Instance.DestroyAllPersistent(true);
+			UnityEngine.SceneManagement.SceneManager.LoadScene("Start");
+		}
 	}
 
     string MakeEndText() {

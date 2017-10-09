@@ -654,6 +654,7 @@ GameObject:
   - component: {fileID: 1035190788}
   - component: {fileID: 1035190787}
   - component: {fileID: 1035190789}
+  - component: {fileID: 1035190790}
   m_Layer: 0
   m_Name: Persistence
   m_TagString: Untagged
@@ -765,6 +766,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1035190790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1035190786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ba89647e975744aa01c09504892634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1629859932
 GameObject:
   m_ObjectHideFlags: 0

@@ -55,7 +55,6 @@ public class SpaceGameState : MonoBehaviour {
     public void BurnFuel() {
         if (CanBurn) {
             _fuelLevel -= FuelPerBurn;
-            Debug.Log(_fuelLevel);
         }
     }
 
@@ -106,7 +105,7 @@ public class SpaceGameState : MonoBehaviour {
     private void Awake() {
         if (Instance == null) {
             Instance = this;
-            DontDestroyOnLoad(this);
+			Persistence.Instance.AddPersistentObject(gameObject);
         }
 
         _capsuleManager = GetComponent<CapsuleManager>();
@@ -172,13 +171,6 @@ public class SpaceGameState : MonoBehaviour {
             _currentCapsule.LastInteractTime = Time.time;
             PassengerDialog.ShowWindow(_currentCapsule.CharacterId);
         }
-        
-    }
-
-    public void DropCapsule(string capsuleId) {
-        var ev = new Event_CapsuleDrop();
-        ev.CapsuleId = capsuleId;
-        EventManager.Fire<Event_CapsuleDrop>(ev);   
     }
 
     public void CollectCapsule() {
