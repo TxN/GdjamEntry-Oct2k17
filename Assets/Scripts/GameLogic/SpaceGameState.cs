@@ -188,6 +188,10 @@ public class SpaceGameState : MonoBehaviour {
 
 
     public void Jump() {
+		if ( LockState != ControlsState.Unlocked ) {
+			return;
+		}
+
         EventManager.Fire(new Event_Jump());
         WarpEffect effect = _playerShip.GetComponent<WarpEffect>();
         effect.enabled = true;
