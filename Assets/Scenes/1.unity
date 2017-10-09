@@ -8526,7 +8526,7 @@ MonoBehaviour:
   BBTManager: {fileID: 1837711549}
   PassengerDialog: {fileID: 2017710419}
   CollectedCapusles: []
-  MaxFuelCapacity: 175
+  MaxFuelCapacity: 150
   FuelPerBurn: 1
   Fader: {fileID: 1898658131}
 --- !u!4 &1293029291

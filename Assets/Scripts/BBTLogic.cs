@@ -42,7 +42,7 @@ public class BBTLogic : MonoBehaviour {
 				text = "Oh! Oh my! Vasiliy! Vasiliy, where are you?";
 				EventManager.Fire (new Activate_Quest{ Id = "Scientist" });
 			}
-			else text="Hello? Is anybode there?";
+			else text="Hello? Is anybody there?";
 			break;
 		case "Engineer":
 			text = "Oh.. Work again? Don't worry, I will lock up the hatch.";
@@ -78,9 +78,9 @@ public class BBTLogic : MonoBehaviour {
 			text = "It was absolutly not my pillow.";
 			break;
 		case "TeacherWoman":
-			if (!CollectedCapusles.Contains ("Scientist")) {
+            if (!CollectedCapusles.Contains("DoctorMan")) {
 				text = "I have a brother... But I can't find him. Can... can you find him for me?";
-				EventManager.Fire (new Activate_Quest{ Id = "Scientist" });
+                EventManager.Fire(new Activate_Quest { Id = "DoctorMan" });
 			}
 			else text="My head... Oh no, it hurts so much!";
 			break;
