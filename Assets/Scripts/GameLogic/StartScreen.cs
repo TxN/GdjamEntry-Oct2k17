@@ -23,12 +23,14 @@ public class StartScreen : MonoBehaviour {
 	}
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) {
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonUp(0)) {
             _seq = TweenHelper.ReplaceSequence(_seq);
             _seq.AppendCallback(() => { _fader.FadeBlack(0.5f); });
             _seq.AppendInterval(0.75f);
             _seq.AppendCallback(() => { GoToScene(); });
         }
+
+
     }
 
 

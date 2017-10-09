@@ -20,21 +20,21 @@ public class ShipControl : MonoBehaviour {
 
 	void Update () {
         if (_state.LockState == ControlsState.Unlocked) {
-            if (Input.GetKey(KeyCode.A)) {
-                body.AddTorque(RotateMomentum);
-            }
-            if (Input.GetKey(KeyCode.D)) {
-                body.AddTorque(-RotateMomentum);
-            }
+			float rotation = Input.GetAxis("Horizontal");
 
-            if (Input.GetKeyDown(KeyCode.W) && _state.CanBurn) {
+			if ( Mathf.Abs(rotation) > 0 ) {
+				Debug.Log(body.angularVelocity);
+				body.AddTorque(-RotateMomentum * rotation);
+			}
+
+            if ( (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && _state.CanBurn) {
                 body.AddForce(transform.TransformDirection(Vector2.up), ForceMode2D.Impulse);
                 EventManager.Fire<Event_Accelerate>(new Event_Accelerate { direction = 1 });
                 _state.BurnFuel();
                 MoveForwardParticles.Play();
             }
 
-            if (Input.GetKeyDown(KeyCode.S) && _state.CanBurn) {
+            if ( (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) ) && _state.CanBurn) {
                 body.AddForce(transform.TransformDirection(-Vector2.up), ForceMode2D.Impulse);
                 EventManager.Fire<Event_Accelerate>(new Event_Accelerate { direction = -1 });
                 _state.BurnFuel();
