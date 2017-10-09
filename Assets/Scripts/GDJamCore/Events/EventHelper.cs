@@ -36,7 +36,7 @@ namespace EventSys
 
 		void Awake()
 		{
-			Persistence.Instance.AddPersistentObject(gameObject);
+			DontDestroyOnLoad(gameObject);
 			SubscribeToLogged();
 		}
 

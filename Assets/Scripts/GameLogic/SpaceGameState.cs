@@ -168,6 +168,7 @@ public class SpaceGameState : MonoBehaviour {
         LockState = ControlsState.Locked;
         _currentCapsule = capsule;
         if (_currentCapsule) {
+			EventManager.Fire(new Event_CapsuleInteract { CapsuleId = capsule.CharacterId });
             _currentCapsule.LastInteractTime = Time.time;
             PassengerDialog.ShowWindow(_currentCapsule.CharacterId);
         }

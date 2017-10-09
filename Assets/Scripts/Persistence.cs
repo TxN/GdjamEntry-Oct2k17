@@ -37,13 +37,17 @@ public class Persistence : MonoBehaviour {
 		}
 	}
 
-	public void DestroyAllPersistent(bool destroyManager = true) {
+	public void DestroyAllPersistent(bool destroyManager = true, bool eventsToo = true) {
 		foreach (var item in _persistentObjects) {
 			if ( item != null ) {
 				Destroy(item);
 			}
 		}
 		_persistentObjects.Clear();
+
+		if ( eventsToo ) {
+			EventSys.EventManager.Instance.CleanUp();
+		}
 
 		if ( destroyManager ) {
 			Destroy(gameObject);
