@@ -25,4 +25,8 @@
 	public struct Event_TitleButtonClick {
 		public string ButtonId;
 	}
+
+	public struct Event_ShipRotate {
+		
+	}
 }

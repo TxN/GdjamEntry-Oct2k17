@@ -26,6 +26,7 @@ public class ShipControl : MonoBehaviour {
 
 			if ( Mathf.Abs(rotation) > 0 ) {
 				body.AddTorque(-RotateMomentum * rotation);
+				EventManager.Fire<Event_ShipRotate>(new Event_ShipRotate());
 			}
 
             if ( (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && _state.CanBurn) {
