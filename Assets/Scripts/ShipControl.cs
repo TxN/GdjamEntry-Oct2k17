@@ -10,11 +10,13 @@ public class ShipControl : MonoBehaviour {
     public ParticleSystem MoveBackwardsParticles;
 
     SpaceGameState _state = null;
+    AudioSource jet_engine = null;
 
     private Rigidbody2D body;
 	void Start () {
         body = GetComponent<Rigidbody2D>();
         _state = SpaceGameState.Instance;
+        jet_engine = GetComponent<AudioSource>(); 
 	}
 	
 
@@ -32,6 +34,7 @@ public class ShipControl : MonoBehaviour {
                 EventManager.Fire<Event_Accelerate>(new Event_Accelerate { direction = 1 });
                 _state.BurnFuel();
                 MoveForwardParticles.Play();
+                jet_engine.Play();
             }
 
             if ( (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) ) && _state.CanBurn) {
@@ -39,6 +42,7 @@ public class ShipControl : MonoBehaviour {
                 EventManager.Fire<Event_Accelerate>(new Event_Accelerate { direction = -1 });
                 _state.BurnFuel();
                 MoveBackwardsParticles.Play();
+                jet_engine.Play();
             }
         }
 	}
