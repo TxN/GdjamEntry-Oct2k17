@@ -17,4 +17,12 @@
     public struct Event_Activate_Quest {
         public string Id;
     }
+
+	public struct Event_TitleBlockHide {
+		public int BlockIndex;
+	}
+
+	public struct Event_TitleButtonClick {
+		public string ButtonId;
+	}
 }

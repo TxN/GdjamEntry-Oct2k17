@@ -25,7 +25,6 @@ public class ShipControl : MonoBehaviour {
 			float rotation = Input.GetAxis("Horizontal");
 
 			if ( Mathf.Abs(rotation) > 0 ) {
-				Debug.Log(body.angularVelocity);
 				body.AddTorque(-RotateMomentum * rotation);
 			}
 

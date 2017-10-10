@@ -196,7 +196,7 @@ public class SpaceGameState : MonoBehaviour {
         WarpEffect effect = _playerShip.GetComponent<WarpEffect>();
         effect.enabled = true;
 
-        _fadeSeq = TweenHelper.ReplaceSequence(_fadeSeq);
+        _fadeSeq = TweenHelper.ReplaceSequence(_fadeSeq, false);
         Fader.gameObject.SetActive(true);
         _fadeSeq.AppendInterval(3f);
         _fadeSeq.Append(Fader.DOFade(1, 1));
