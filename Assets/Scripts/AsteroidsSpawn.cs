@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
+using EventSys;
 
 public class AsteroidsSpawn : MonoBehaviour {
-
+	public bool ParentToThis = false;
 	public int asteroidsMax = 29;
 	private Transform tx;
-	//private GameObject[] asteroids = new GameObject[asteroidsMax];
+
 	private GameObject[] asteroids;
 	public GameObject[] prefabs = new GameObject[2];
 
@@ -16,23 +16,31 @@ public class AsteroidsSpawn : MonoBehaviour {
 	private float asteroidClipDistanceSqr;
 	public float asteroidRadius = 1;
 
-	private int updateEvery = 5;
-	private int counter = 0;
+	private int _updateEvery = 7;
+	private int _counter = 0;
 
 	GameObject root;
 
-    public static AsteroidsSpawn Instance = null;
-
     void Awake() {
-        Instance = this;
+		EventManager.Subscribe<Event_Jump>(this, OnJump);
     }
 
-	// Use this for initialization
+	private void OnDestroy() {
+		EventManager.Unsubscribe<Event_Jump>(OnJump);
+	}
+
+	void OnJump(Event_Jump e) {
+		enabled = false;
+	}
+
 	void Start () {
 		asteroids = new GameObject[asteroidsMax];
 		root = new GameObject();
 		root.transform.position = Vector2.zero;
 		root.name = "Asteroid Field";
+		if ( ParentToThis ) {
+			root.transform.SetParent(transform, false);
+		}
 
 		tx = transform;
 		asteroidDistanceSqr = asteroidDistance * asteroidDistance;
@@ -44,37 +52,47 @@ public class AsteroidsSpawn : MonoBehaviour {
 		for (int i = 0; i < asteroidsMax; i++)
 		{
 			asteroids[i] = Instantiate(prefabs[Random.Range(0, prefabs.Length)]) as GameObject;
-			Vector2 pos = Random.insideUnitCircle * asteroidDistance + (Vector2)tx.position;
-			while (Physics2D.OverlapCircle(pos, asteroidRadius)) {
-				pos = Random.insideUnitCircle * asteroidDistance + (Vector2)tx.position;
-			}
-		
-			//asteroids[i].transform.position = Random.insideUnitCircle * asteroidDistance + (Vector2)tx.position;
-			//asteroids[i].transform.position = Random.insideUnitCircle * asteroidDistance + (Vector2)tx.position;
+			Vector2 pos = FindSpawnPos();	
 			asteroids[i].transform.position = pos;
 			asteroids[i].transform.parent = root.transform;
-			//asteroids[i].GetComponent<Rigidbody2D>().angularVelocity = Random.insideUnitCircle * 2f;
+						Vector3 tmpScale = asteroids[i].transform.localScale;
+			tmpScale *= Random.Range(0.85f, 1.2f);
+			asteroids[i].transform.localScale = tmpScale;
 			asteroids[i].GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-100f, 100f);
 		}
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		counter++;
-		if (asteroids[0] == null) CreateAsteroids();
+		_counter++;
+		if (asteroids[0] == null) {
+			CreateAsteroids();
+		}
 
-		if (counter == updateEvery)
-		{
-			counter = 0;
+		if (_counter == _updateEvery) {
+			_counter = 0;
 
-			for (int i = 0; i < asteroidsMax; i++)
-			{
-				if ((asteroids[i].transform.position - tx.position).sqrMagnitude > asteroidDistanceSqr)
-				{
-					asteroids[i].transform.position = Random.insideUnitCircle.normalized * asteroidDistance + (Vector2)tx.position;
+			for (int i = 0; i < asteroidsMax; i++) {
+				if ((asteroids[i].transform.position - tx.position).sqrMagnitude > asteroidDistanceSqr) {
+					asteroids[i].transform.position = FindRespawnPos();
 					asteroids[i].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 				}
 			}
 		}
+	}
+
+	Vector2 FindSpawnPos() {
+		Vector2 pos = Random.insideUnitCircle * asteroidDistance + (Vector2)tx.position;
+		while (Physics2D.OverlapCircle(pos, asteroidRadius)) {
+			pos = Random.insideUnitCircle * asteroidDistance + (Vector2)tx.position;
+		}
+		return pos;
+	}
+
+	Vector2 FindRespawnPos() {
+		Vector2 pos = Random.insideUnitCircle.normalized * Random.Range(asteroidClipDistance, asteroidDistance) + (Vector2)tx.position;
+		while (Physics2D.OverlapCircle(pos, asteroidRadius)) {
+			pos = Random.insideUnitCircle.normalized * Random.Range(asteroidClipDistance, asteroidDistance) + (Vector2)tx.position;
+		}
+		return pos;
 	}
 }

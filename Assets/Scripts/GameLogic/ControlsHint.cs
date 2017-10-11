@@ -30,11 +30,11 @@ public class ControlsHint : MonoBehaviour {
 	void OnControlsUsed() {
 		_seq = TweenHelper.ReplaceSequence(_seq, false);
 		_seq.Append(_cg.DOFade(0, 0.75f));
-		_seq.AppendCallback( () => { Destroy(gameObject); });
+		Destroy(gameObject, 1);
 	}
 
-	void OnDesroy() {
-		_seq = TweenHelper.ReplaceSequence(_seq, false);
+	void OnDestroy() {
+		_seq = TweenHelper.ResetSequence(_seq, false);
 		EventManager.Unsubscribe<Event_ShipRotate>(OnRotate);
 		EventManager.Unsubscribe<Event_Accelerate>(OnAccelerate);
 		EventManager.Unsubscribe<Event_Jump>( OnJump);

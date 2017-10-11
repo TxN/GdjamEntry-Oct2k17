@@ -52,8 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Portrait: {fileID: 21300000, guid: f7d85c40012d29f4aae729b168aa6a6a, type: 3}
-  FullName: Martin
+  FullName: Martin Ivanov
   Id: Preacher
-  FirstDesc: 'Name: |Martin |Age: |68 y.o. |Speciality: Preacher |Son - Roderick Ivanov'
+  FirstDesc: 'Name: |Martin Ivanov |Age: |68 y.o. |Speciality: Preacher |Son - Roderick
+    Ivanov'
   SecondDesc: 'Likes to eat '
   SkipOnSpawn: 0

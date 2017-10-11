@@ -56,5 +56,5 @@ MonoBehaviour:
   Id: DoctorMan
   FirstDesc: 'Name: |Arkadiy Belyi |Age: |38 y.o. |Speciality: Doctor | Sister - Inna
     Belaya '
-  SecondDesc: 'Laureate of Arkadiy Belyi price '
+  SecondDesc: 'Laureate of Arkadiy Belyi prize '
   SkipOnSpawn: 0

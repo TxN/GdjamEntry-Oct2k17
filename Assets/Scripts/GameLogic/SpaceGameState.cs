@@ -134,7 +134,7 @@ public class SpaceGameState : MonoBehaviour {
     }
 
     private void OnDestroy() {
-        _fadeSeq = TweenHelper.ReplaceSequence(_fadeSeq);
+        _fadeSeq = TweenHelper.ResetSequence(_fadeSeq,false);
     }
 
     public ControlsState LockState {

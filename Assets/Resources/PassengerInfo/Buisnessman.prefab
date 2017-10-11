@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Portrait: {fileID: 21300000, guid: d84d9f27c229efc439075b6e62f5bbd7, type: 3}
-  FullName: Albert
+  FullName: Albert Dump
   Id: Buisnessman
-  FirstDesc: 'Name: |Albert  |Age: |40 y.o. |Speciality: Businessman'
+  FirstDesc: 'Name: |Albert Dump  |Age: |40 y.o. |Speciality: Businessman'
   SecondDesc: 'Lives in a tent '
   SkipOnSpawn: 0

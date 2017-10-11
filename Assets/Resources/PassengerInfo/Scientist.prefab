@@ -56,5 +56,5 @@ MonoBehaviour:
   Id: Scientist
   FirstDesc: 'Name: |Vasiliy Sych |Age: |46 y.o. |Speciality: Scientist |Wife - Lyudmila
     Sych'
-  SecondDesc: 'Takes b&w photos '
+  SecondDesc: 'Takes B&W photos '
   SkipOnSpawn: 0
